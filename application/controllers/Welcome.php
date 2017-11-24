@@ -35,7 +35,9 @@ class welcome extends CI_Controller {
 	}
 	public function menu()
 	{
+		$this->load->model('models_menu'); //載入models/model_users.php 編寫功能
+		$data['menu'] = $this->models_menu->getmenu(); //調用models/model_users.php裏頭指定(getusers)
 		$this->load->helper('url');
-		$this->load->view('view_menu');
+		$this->load->view('view_menu', $data);
 	}
 }
